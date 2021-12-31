@@ -1,9 +1,9 @@
 const router = require('express').Router();
 const sequelize = require('../../config/connection');
-const {Post, User} = require('../../models');
-const withAuth = require('../../utils/auth');
+const {Post, User, Comment} = require('../../models');
+const auth = require('../../utils/auth');
 
-router.get('/', withAuth, (req, res) => {
+router.get('/', auth, (req, res) => {
     Post.findAll({
         attributes: [
             'id',  
@@ -12,6 +12,14 @@ router.get('/', withAuth, (req, res) => {
             'created_at'
         ],
         include: [
+            {
+                model: Comment,
+                attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
+                include: {
+                    model: User,
+                    attributes: ['username']
+                }
+            },
             {
                 model: User,
                 attributes: ['username']
@@ -38,6 +46,14 @@ router.get('/:id', (req, res) => {
         ],
         include: [
             {
+                model: Comment,
+                attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
+                include: {
+                    model: User,
+                    attributes: ['username']
+                }
+            },
+            {
                 model: User,
                 attributes: ['username']
             }
@@ -56,7 +72,7 @@ router.get('/:id', (req, res) => {
         });
 });
 
-router.post('/', withAuth, (req, res) => {
+router.post('/', auth, (req, res) => {
     Post.create({
         title: req.body.title,
         content: req.body.content,
@@ -69,7 +85,7 @@ router.post('/', withAuth, (req, res) => {
         });
 })
 
-router.put('/:id', withAuth, (req, res) => {
+router.put('/:id', auth, (req, res) => {
     Post.update(
         {
             title: req.body.title
@@ -93,7 +109,7 @@ router.put('/:id', withAuth, (req, res) => {
         });
 });
 
-router.delete('/:id', withAuth, (req, res) => {
+router.delete('/:id', auth, (req, res) => {
     Post.destroy({
         where: {
             id: req.params.id

@@ -1,9 +1,15 @@
 const router = require('express').Router();
-const {User, Post} = require('../../models');
+const {User, Post, Comment} = require('../../models');
 
 router.get('/', (req, res) => {
     User.findAll({
-        attributes: {exclude: ['password']}
+        attributes: {exclude: ['password']},
+        include: [
+            {
+                model: Post,
+                attributes: ['id', 'title', 'content', 'created_at']
+            }
+        ]
     })
     .then(dbUserData => res.json(dbUserData))
     .catch(err => {
@@ -22,6 +28,14 @@ router.get('/:id', (req, res) => {
             {
                 model: Post,
                 attributes: ['id', 'title', 'content', 'created_at']
+            },
+            {
+                model: Comment,
+                attributes: ['id', 'comment_text', 'created_at'],
+                include: {
+                    model: Post,
+                    attributes: ['title']
+                }
             }
         ]
     })
@@ -73,7 +87,7 @@ router.post('/login', (req, res) => {
         const validPassword = dbUserData.checkPassword(req.body.password);
         
         if (!validPassword) {
-            res.status(400).json({message: 'Incorrect passwordf!'});
+            res.status(400).json({message: 'Incorrect password!'});
             return;
         }
         

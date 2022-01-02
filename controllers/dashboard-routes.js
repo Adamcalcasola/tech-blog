@@ -77,4 +77,8 @@ router.get('/update/:id', auth, (req, res) => {
         });
 });
 
+router.get('/new-post', (req, res) => {
+    res.render('create-post');
+});
+
 module.exports = router;

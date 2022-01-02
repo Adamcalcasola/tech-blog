@@ -1,6 +1,7 @@
+<a href="/post/{{id}}">
 <article class="post">
     <div class="title">
-        <a href="/post/{{id}}">{{title}}</a>
+        {{title}}
         <div class="meta">
             Posted by {{user.username}} on {{format_date created_at}}
         </div>
@@ -8,6 +9,11 @@
     <div class="content">
         {{content}}
     </div>
-</article>
 
+    {{#each comments}}
+        {{> comments comment}}
+    {{/each}}
+
+</article>
+</a>
 {{!-- <script src="/javascript/add-post.js"></script> --}}

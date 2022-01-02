@@ -1,10 +1,11 @@
-<article class="post">
-    <div class="title">
-        <a href="/dashboard/update/{{id}}">{{title}}</a>
-        <div class="meta">
-            Posted by {{user.username}} on {{format_date created_at}}
+<a href="/dashboard/update/{{id}}">
+    <article class="post">
+        <div class="title">
+            {{title}}
+            <div class="meta">
+                Posted by {{user.username}} on {{format_date created_at}}
+            </div>
         </div>
-    </div>
-</article>
-
+    </article>
+</a>
 {{!-- <script src="/javascript/update-post.js"></script> --}}

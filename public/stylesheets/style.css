@@ -23,6 +23,10 @@ nav a {
   text-decoration: none;
 }
 
+#logout {
+  cursor: pointer;
+}
+
 header h1 {
   display: inline-block;
   background-color: white;
@@ -126,12 +130,19 @@ button:hover {
   width: 98%;
 }
 
+#newPost:hover {
+  background-color: #3486eb;
+}
+
 .post {
-  margin-bottom: 2%;
+  margin-bottom: 1%;
   /* line-height: 150%; */
   border: black solid 4px;
 }
 
+.post:hover {
+  border: #3486eb solid 4px;
+}
 .post-list {
   margin: 0;
   padding: 0;
@@ -147,19 +158,23 @@ button:hover {
   color: white;
 }
 
+.title:hover {
+  background-color: #3486eb;
+}
+
 .content {
   padding: 1%;
   color: black;
 }
 
 .comment-form {
-  margin-bottom: 5%;
+  margin-bottom: 1%;
 }
 
 .comment {
   padding: 1%;
   margin-bottom: 1%;
-  border: Black solid 5px;
+  border: Black solid 4px;
 }
 
 .meta {

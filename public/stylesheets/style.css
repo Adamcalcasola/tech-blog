@@ -64,6 +64,10 @@ form {
   border: black solid 4px;
 }
 
+form:hover {
+  border: #3486eb solid 4px;
+}
+
 form label {
   display: block;
   padding: 1%;
@@ -120,7 +124,6 @@ button:hover {
   background-color: #225ca3;
   border: 0;
   padding: 1%;
-  /* margin: 1%; */
   color: white;
   font-weight: bold;
   text-align: center;
@@ -136,7 +139,6 @@ button:hover {
 
 .post {
   margin-bottom: 1%;
-  /* line-height: 150%; */
   border: black solid 4px;
 }
 
@@ -199,74 +201,3 @@ button:hover {
 .delete-post-btn:hover {
   background-color: #ff643d;
 }
-
-
-
-
-
-
-
-
-
- /* .edit-link {
-  display: block;
-  margin: -1.5% 0 2% 0;
-} 
-
-.edit-post-form {
-  margin-bottom: 5%;
-}
-*/
-/* * {
-  box-sizing: border-box;
-} */
-
-/* Form Styling */
-
-/* form > div {
-  margin-bottom: 2%;
-} */
-
-/* .comment:nth-child(odd) {
-  background-color: #fff5eb;
-} */
-
-/* .new-post-form input {
-  width: 300px;
-} */
-
-/*.wrapper {
-  width: 100%;
-  min-height: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-}*/
-
-/*#titlebox {
-  background-color: white;
-  border-radius: 5px;
-}
-
-#titlebox h1 {
-  color: black;
-}*/
-
-/* .btn-no-style {
-  background: none;
-  border: none;
-  padding: 0;
-  cursor: pointer;
-  text-decoration: none;
-  color: #225ca3;
-  font-size: 100%;
-  font-weight: bold;
-  transition: color .1s;
-  margin-left: 16px;
-} */
-
-/* .btn-no-style:hover {
-  background: none;
-  color: #3486eb;
-} */
